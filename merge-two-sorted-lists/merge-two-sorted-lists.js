@@ -11,7 +11,6 @@
  * @return {ListNode}
  */
 var mergeTwoLists = function(l1, l2) {
-    // 첫번째 노드 찾기
     let node = null;
     let t1 = l1, t2 = l2;
     let tmp = [];
