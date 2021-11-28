@@ -11,9 +11,6 @@ var flipAndInvertImage = function(image) {
             image[i][j] = image[i][size-j-1];
             image[i][size-j-1] = tmp;
         }
-    }
-    
-    for(let i=0;i<size;i++){
         for(let j=0;j<size;j++){
             image[i][j] = image[i][j] === 0 ? 1 : 0;
         }
