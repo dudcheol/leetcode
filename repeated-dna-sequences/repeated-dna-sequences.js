@@ -2,6 +2,7 @@
  * @param {string} s
  * @return {string[]}
  */
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 var findRepeatedDnaSequences = function(s) {
     const loopSize = s.length-10+1;
     const map = new Map();
