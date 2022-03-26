@@ -3,24 +3,27 @@
  * @return {number}
  */
 
-const ALPHA = ['a','e','i','o','u'];
-
+let dp = [[1,1,1,1,1]];
 var countVowelStrings = function(n) {
+    const len = dp.length;
+    let ret = 0;
     
-    const backtracking = (lastChar, len) => {
-        if(len===0) return 1;
-        
-        let ret = 0;
-        for(let i=0;i<5;i++){
-            if(ALPHA[i] >= lastChar) {
-                ret += backtracking(ALPHA[i], len-1);
-            }
+    if(n==1) {
+        for(let i = 0 ; i < 5 ; i++){
+            ret += dp[len-1][i];
         }
-        
+        dp = [[1,1,1,1,1]];
         return ret;
     }
     
-    const answer = backtracking(ALPHA[0], n);
+    for(let i = 0 ; i < 5 ; i++){
+        if(i===0) dp[len] = [];
+        let sum = 0;
+        for(let j = i ; j < 5 ; j++){
+            sum += dp[len-1][j];
+        }
+        dp[len].push(sum);
+    }
     
-    return answer;
+    return countVowelStrings(n-1);
 };
